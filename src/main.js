@@ -3,6 +3,7 @@ import App from './App.vue'
 import Quote from './Quote.vue'
 import Forms from './Forms.vue'
 import Directive from "./Directive";
+import Filter from "./Filter";
 
 export const eventBus = new Vue({
   //centralized eventBus so you can use it everywhere
@@ -33,10 +34,15 @@ Vue.directive('highlight', {
   }
 });
 
+//Global filters
+Vue.filter('to-lowercase', function (value) {
+  return value.toLowerCase();
+});
+
 new Vue({
   el: '#app',
   //render: h => h(App)
-  render: h => h(Directive)
+  render: h => h(Filter)
 });
 
 /*new Vue({
